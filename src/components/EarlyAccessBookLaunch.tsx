@@ -79,23 +79,23 @@ async function handleSubmit(ev?: React.FormEvent) {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 p-8">
       <div className="max-w-3xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="p-8 bg-white rounded-2xl shadow-lg">
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">Get Early Access — <span className="text-indigo-600">New Book Launch</span></h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-black">Get Early Access — <span className="text-indigo-600">New Book Launch</span></h1>
           <p className="mt-4 text-gray-600">Be the first to receive exclusive chapters, pre-order discounts, and launch invites. Secure your spot on the early access list.</p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <label className="block">
               <span className="text-sm font-medium text-gray-700">Full name</span>
-              <input value={name} onChange={(e) => setName(e.target.value)} className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Your name" />
+              <input value={name} onChange={(e) => setName(e.target.value)} className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300 text-black" placeholder="Your name" />
             </label>
 
             <label className="block">
               <span className="text-sm font-medium text-gray-700">Email</span>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300" placeholder="you@example.com" />
+              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300 text-black" placeholder="you@example.com" />
             </label>
 
             <label className="block">
               <span className="text-sm font-medium text-gray-700">Phone</span>
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="tel" className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300" placeholder="+91 98765 43210" />
+              <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="tel" className="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 shadow-sm p-3 outline-none focus:ring-2 focus:ring-indigo-300 text-black" placeholder="+91 98765 43210" />
             </label>
 
             {error && <div className="text-sm text-red-600">{error}</div>}
@@ -114,7 +114,7 @@ async function handleSubmit(ev?: React.FormEvent) {
 
         <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="p-8 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-indigo-50 shadow-inner">
           <div className="h-full flex flex-col justify-center">
-            <h2 className="text-2xl font-bold">Why join?</h2>
+            <h2 className="text-2xl font-extrabold text-black">Why join?</h2>
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>• Early excerpts & sample chapters</li>
               <li>• Exclusive pre-order discount</li>
@@ -122,7 +122,7 @@ async function handleSubmit(ev?: React.FormEvent) {
             </ul>
 
             <div className="mt-6 bg-white rounded-xl p-4 shadow-sm">
-              <h3 className="font-semibold">Privacy</h3>
+              <h3 className="font-semibold text-black">Privacy</h3>
               <p className="mt-2 text-sm text-gray-600">We only use your contact to share launch updates. We promise not to spam and misuse the information. We comply with Information Technology Act, 2000.</p>
             </div>
 
