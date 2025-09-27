@@ -76,11 +76,20 @@ async function handleSubmit(ev?: React.FormEvent) {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 p-8">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-400 to-purple-500 p-4">
+
       <div className="max-w-3xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="p-8 bg-white rounded-2xl shadow-lg">
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-black">Get Early Access — <span className="text-indigo-600">New Book Launch</span></h1>
-          <p className="mt-4 text-gray-600">Be the first to receive exclusive chapters, pre-order discounts, and launch invites. Secure your spot on the early access list.</p>
+        <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  whileHover={{ scale: 1.02 }}
+  className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.15)] hover:shadow-[0_10px_35px_rgb(0,0,0,0.25)] transition-shadow duration-500 rounded-2xl p-8 w-full max-w-md border border-gray-100"
+>
+          <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-3 tracking-tight">
+  Get Early Access 🚀
+</h1>
+          <p className="text-center text-gray-600 mb-6 text-[15px] leading-relaxed">Join the exclusive waitlist and be among the first to experience the book launch.</p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <label className="block">
@@ -101,18 +110,70 @@ async function handleSubmit(ev?: React.FormEvent) {
             {error && <div className="text-sm text-red-600">{error}</div>}
 
             <div className="flex items-center gap-3">
-              <button disabled={status === "sending"} type="submit" className="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-indigo-600 text-white font-semibold shadow hover:opacity-95 disabled:opacity-60">
-                {status === "sending" ? "Joining..." : "Join Early Access"}
-              </button>
+              <button
+  disabled={status === "sending"}
+  type="submit"
+  className={`relative inline-flex items-center justify-center px-6 py-3 rounded-xl
+              font-semibold text-white
+              transition-all duration-300
+              shadow-[0_4px_15px_rgba(99,102,241,0.4)]
+              hover:shadow-[0_8px_25px_rgba(99,102,241,0.6)]
+              bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+              hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600
+              disabled:opacity-60 disabled:cursor-not-allowed`}
+>
+  {status === "sending" ? (
+    <span className="flex items-center gap-2">
+      <svg
+        className="animate-spin h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+        ></path>
+      </svg>
+      Joining...
+    </span>
+  ) : (
+    "Join Early Access"
+  )}
+</button>
+
 
               <span className="text-sm text-gray-500">No spam. Unsubscribe anytime.</span>
             </div>
 
-            {status === "success" && <div className="mt-2 text-sm text-green-600">Thanks — you're on the list! We'll email you soon.</div>}
+            {status === "success" && <motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ type: "spring", stiffness: 200 }}
+  className="text-center bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent font-semibold text-lg"
+>
+  🎉 Thank you for joining! You’ll be notified when the book launches.
+</motion.div>}
           </form>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="p-8 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-indigo-50 shadow-inner">
+        <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  whileHover={{ scale: 1.02 }}
+  className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.15)] hover:shadow-[0_10px_35px_rgb(0,0,0,0.25)] transition-shadow duration-500 rounded-2xl p-8 w-full max-w-md border border-gray-100"
+>
+
           <div className="h-full flex flex-col justify-center">
             <h2 className="text-2xl font-extrabold text-black">Why join?</h2>
             <ul className="mt-4 space-y-3 text-gray-700">
